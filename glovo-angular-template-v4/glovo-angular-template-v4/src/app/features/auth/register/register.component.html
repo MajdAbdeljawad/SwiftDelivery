@@ -1,0 +1,65 @@
+<section class="register-page">
+  <div class="register-wrap">
+    <div class="intro-panel">
+      <span class="badge">New users</span>
+      <h1>Create your account</h1>
+      <p>Use this signup template for a delivery app, marketplace, or food ordering project.</p>
+      <ul>
+        <li>Save favorite restaurants</li>
+        <li>Track current and past orders</li>
+        <li>Manage profile, address, and payment details</li>
+      </ul>
+    </div>
+
+    <div class="form-panel">
+      <div class="panel-head">
+        <h2>Sign up</h2>
+        <p>Ready-to-use Angular registration UI.</p>
+      </div>
+
+      <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <label>
+          <span>Full name</span>
+          <input formControlName="fullName" type="text" placeholder="Firas Toukabri" required />
+          <small class="field-error" *ngIf="isInvalid('fullName', 'required')">Full name is required.</small>
+          <small class="field-error" *ngIf="isInvalid('fullName', 'minlength')">Full name must contain at least 2 characters.</small>
+        </label>
+
+        <label>
+          <span>Email address</span>
+          <input formControlName="email" type="email" placeholder="name@example.com" required />
+          <small class="field-error" *ngIf="isInvalid('email', 'required')">Email is required.</small>
+          <small class="field-error" *ngIf="isInvalid('email', 'email')">Invalid email format.</small>
+        </label>
+
+        <label>
+          <span>Password</span>
+          <input formControlName="password" name="password" type="password" placeholder="Create password" required />
+          <small class="field-error" *ngIf="isInvalid('password', 'required')">Password is required.</small>
+          <small class="field-error" *ngIf="isInvalid('password', 'minlength')">Password must contain at least 6 characters.</small>
+        </label>
+
+        <label>
+          <span>Phone number</span>
+          <input formControlName="phone" type="text" placeholder="+21612345678" required />
+          <small class="field-error" *ngIf="isInvalid('phone', 'required')">Phone number is required.</small>
+          <small class="field-error" *ngIf="isInvalid('phone', 'pattern')">Use Tunisia format: 8 digits or +216 followed by 8 digits.</small>
+        </label>
+
+        <label>
+          <span>Address (Tunisia city)</span>
+          <select formControlName="address" required>
+            <option value="" disabled>Select a city</option>
+            <option *ngFor="let city of tunisianCities" [value]="city">{{ city }}</option>
+          </select>
+          <small class="field-error" *ngIf="isInvalid('address', 'required')">Address city is required.</small>
+        </label>
+
+        <button type="submit" class="primary-btn" [disabled]="submitting">
+          {{ submitting ? 'Creating account...' : 'Create account' }}
+        </button>
+        <p class="switch-link">Already have an account? <a routerLink="/login">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+</section>

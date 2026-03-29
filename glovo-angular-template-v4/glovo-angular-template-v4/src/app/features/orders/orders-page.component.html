@@ -1,0 +1,20 @@
+<section class="orders-page container">
+  <p class="eyebrow">Orders</p>
+  <h1>Track your orders</h1>
+  <div class="orders-grid">
+    <article class="order-card" *ngFor="let order of orders">
+      <div class="row">
+        <h3>{{ order.id }}</h3>
+        <span class="status">{{ order.status }}</span>
+      </div>
+      <p>{{ order.restaurant }}</p>
+      <div class="meta"><span>{{ order.date }}</span><strong>{{ order.total }}</strong></div>
+      <div class="timeline">
+        <span class="done">Order confirmed</span>
+        <span class="done">Preparing</span>
+        <span [class.done]="order.status === 'On the way' || order.status === 'Delivered'">On the way</span>
+        <span [class.done]="order.status === 'Delivered'">Delivered</span>
+      </div>
+    </article>
+  </div>
+</section>

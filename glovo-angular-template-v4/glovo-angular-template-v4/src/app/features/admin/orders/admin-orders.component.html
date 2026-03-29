@@ -1,0 +1,46 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des commandes</h1>
+          <p>Suivi des commandes client, statuts et historique.</p>
+        </div>
+        <div class="toolbar">
+          <select><option>Aujourd’hui</option><option>Cette semaine</option></select><button class="secondary-btn">Exporter</button>
+        </div>
+      </div>
+
+
+<div class="metrics">
+  <div class="metric-card"><h4>Nouvelles</h4><p>124</p></div>
+  <div class="metric-card"><h4>En cours</h4><p>58</p></div>
+  <div class="metric-card"><h4>Livrées</h4><p>660</p></div>
+  <div class="metric-card"><h4>Annulées</h4><p>9</p></div>
+</div>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Client</th><th>Restaurant</th><th>Total</th><th>Statut</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>#1001</td><td>Rahma</td><td>Pizza Time</td><td>42 TND</td><td><span class="status">Préparation</span></td></tr>
+    <tr><td>#1002</td><td>Ali</td><td>Coffee Lab</td><td>14 TND</td><td><span class="status">Payée</span></td></tr>
+    <tr><td>#1003</td><td>Marwa</td><td>Tacos Hub</td><td>37 TND</td><td><span class="status">Livraison</span></td></tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</section>

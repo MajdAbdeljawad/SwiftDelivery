@@ -1,0 +1,32 @@
+<section class="cart-page container">
+  <div>
+    <p class="eyebrow">Shopping cart</p>
+    <h1>Your selected items</h1>
+
+    <div class="empty" *ngIf="cartService.getItems().length === 0">Your cart is empty.</div>
+
+    <div class="cart-list" *ngIf="cartService.getItems().length > 0">
+      <article class="cart-item" *ngFor="let entry of cartService.getItems()">
+        <div>
+          <h3>{{ entry.item.name }}</h3>
+          <p>{{ entry.item.description }}</p>
+        </div>
+        <div class="actions">
+          <button type="button" (click)="cartService.decrease(entry.item.id)">-</button>
+          <span>{{ entry.quantity }}</span>
+          <button type="button" (click)="cartService.increase(entry.item.id)">+</button>
+          <strong>{{ entry.item.price * entry.quantity }} DT</strong>
+          <button type="button" class="remove" (click)="cartService.remove(entry.item.id)">Remove</button>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <aside class="summary-card">
+    <h2>Order summary</h2>
+    <div class="summary-row"><span>Subtotal</span><strong>{{ cartService.getSubtotal() }} DT</strong></div>
+    <div class="summary-row"><span>Delivery</span><strong>{{ cartService.getDeliveryFee() }} DT</strong></div>
+    <div class="summary-row total"><span>Total</span><strong>{{ cartService.getTotal() }} DT</strong></div>
+    <a routerLink="/checkout" class="checkout-btn">Continue to checkout</a>
+  </aside>
+</section>

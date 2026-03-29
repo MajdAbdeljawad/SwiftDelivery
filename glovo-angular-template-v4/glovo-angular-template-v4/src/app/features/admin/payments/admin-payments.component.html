@@ -1,0 +1,45 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des paiements</h1>
+          <p>Validation des paiements, modes de paiement et remboursements.</p>
+        </div>
+        <div class="toolbar">
+          <select><option>Tous les modes</option><option>Carte</option><option>Cash</option><option>Wallet</option></select><button class="primary-btn">Voir remboursements</button>
+        </div>
+      </div>
+
+
+<div class="card-list" style="margin-bottom:18px;">
+  <div class="info-card"><h4>Paiements réussis</h4><p>96.8%</p></div>
+  <div class="info-card"><h4>Paiements en attente</h4><p>14 transactions</p></div>
+  <div class="info-card"><h4>Remboursements</h4><p>5 demandes aujourd’hui</p></div>
+</div>
+<table>
+  <thead>
+    <tr><th>Transaction</th><th>Commande</th><th>Mode</th><th>Montant</th><th>Statut</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>TRX-5001</td><td>#1001</td><td>Carte</td><td>42 TND</td><td><span class="status">Validée</span></td></tr>
+    <tr><td>TRX-5002</td><td>#1002</td><td>Cash</td><td>14 TND</td><td><span class="status">Reçue</span></td></tr>
+    <tr><td>TRX-5003</td><td>#1003</td><td>Wallet</td><td>37 TND</td><td><span class="status">En attente</span></td></tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</section>

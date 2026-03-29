@@ -1,0 +1,121 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des utilisateurs</h1>
+          <p>CRUD complet des utilisateurs via API Gateway.</p>
+        </div>
+        <div class="toolbar">
+          <button class="primary-btn" type="button" (click)="openCreateForm()">Ajouter utilisateur</button>
+        </div>
+      </div>
+
+      <p class="feedback success" *ngIf="successMessage">{{ successMessage }}</p>
+      <p class="feedback error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <div class="loading-box" *ngIf="loading">Chargement des utilisateurs...</div>
+
+      <section class="form-card" *ngIf="formVisible">
+        <h3>{{ isEditMode ? 'Modifier utilisateur' : 'Créer utilisateur' }}</h3>
+
+        <form [formGroup]="userForm" (ngSubmit)="submitUser()" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="fullName">Nom complet</label>
+              <input id="fullName" type="text" formControlName="fullName" placeholder="Nom complet" />
+              <small class="field-error" *ngIf="isInvalid('fullName', 'required')">Nom complet obligatoire.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" formControlName="email" placeholder="email@domain.com" />
+              <small class="field-error" *ngIf="isInvalid('email', 'required')">Email obligatoire.</small>
+              <small class="field-error" *ngIf="isInvalid('email', 'email')">Format email invalide.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="password">Mot de passe {{ isEditMode ? '(laisser vide pour garder le mot de passe actuel)' : '' }}</label>
+              <input id="password" type="password" formControlName="password" placeholder="Mot de passe" />
+              <small class="field-error" *ngIf="!isEditMode && isInvalid('password', 'required')">Mot de passe obligatoire en création.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Téléphone</label>
+              <input id="phone" type="text" formControlName="phone" placeholder="Téléphone" />
+            </div>
+
+            <div class="form-field">
+              <label for="address">Adresse</label>
+              <input id="address" type="text" formControlName="address" placeholder="Adresse" />
+            </div>
+
+            <div class="form-field">
+              <label for="role">Rôle</label>
+              <select id="role" formControlName="role">
+                <option value="" disabled>Choisir un rôle</option>
+                <option value="USER">USER</option>
+                <option value="DELIVERY">DELIVERY</option>
+                <option value="ADMIN">ADMIN</option>
+              </select>
+              <small class="field-error" *ngIf="isInvalid('role', 'required')">Rôle obligatoire.</small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-btn" type="submit" [disabled]="submitting">
+              {{ submitting ? 'En cours...' : (isEditMode ? 'Mettre à jour' : 'Créer') }}
+            </button>
+            <button class="secondary-btn" type="button" (click)="cancelForm()">Annuler</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="table-wrapper" *ngIf="!loading">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Téléphone</th>
+              <th>Adresse</th>
+              <th>Rôle</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; trackBy: trackByUserId">
+              <td>{{ user.id }}</td>
+              <td>{{ user.fullName }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone || '-' }}</td>
+              <td>{{ user.address || '-' }}</td>
+              <td><span class="role-pill">{{ user.role }}</span></td>
+              <td class="action-cell">
+                <button class="secondary-btn" type="button" (click)="openEditForm(user)">Modifier</button>
+                <button class="danger-btn" type="button" (click)="confirmDeleteUser(user)">Supprimer</button>
+              </td>
+            </tr>
+            <tr *ngIf="users.length === 0">
+              <td colspan="7" class="empty-state">Aucun utilisateur trouvé.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>

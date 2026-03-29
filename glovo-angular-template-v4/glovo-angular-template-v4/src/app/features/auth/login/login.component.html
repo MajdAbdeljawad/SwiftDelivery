@@ -1,0 +1,55 @@
+<section class="auth-page">
+  <div class="auth-card auth-copy">
+    <span class="badge">Customer space</span>
+    <h1>Welcome back</h1>
+    <p>
+      Sign in to order faster, track your deliveries, save addresses, and manage your favorite restaurants.
+    </p>
+
+    <div class="benefits">
+      <div class="benefit-item">
+        <strong>Fast checkout</strong>
+        <span>Saved addresses and one-click reorder.</span>
+      </div>
+      <div class="benefit-item">
+        <strong>Order tracking</strong>
+        <span>Follow your delivery status in real time.</span>
+      </div>
+      <div class="benefit-item">
+        <strong>Exclusive offers</strong>
+        <span>Discounts and promo codes for connected users.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-card auth-form-card">
+    <div class="auth-form-head">
+      <h2>Sign in</h2>
+      <p>Use this template for your Angular login page.</p>
+    </div>
+
+    <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <label>
+        <span>Email address</span>
+        <input formControlName="email" type="email" placeholder="name@example.com" required />
+        <small class="field-error" *ngIf="isInvalid('email', 'required')">Email is required.</small>
+        <small class="field-error" *ngIf="isInvalid('email', 'email')">Invalid email format.</small>
+      </label>
+
+      <label>
+        <span>Password</span>
+        <input formControlName="password" type="password" placeholder="Enter your password" required />
+        <small class="field-error" *ngIf="isInvalid('password', 'required')">Password is required.</small>
+      </label>
+
+      <div class="form-row">
+        <span></span>
+        <a routerLink="/register">Create account</a>
+      </div>
+
+      <button type="submit" class="primary-btn" [disabled]="submitting">
+        {{ submitting ? 'Signing in...' : 'Login' }}
+      </button>
+    </form>
+  </div>
+</section>

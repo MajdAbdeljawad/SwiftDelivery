@@ -1,0 +1,21 @@
+# Node
+node_modules/
+glovo-angular-template-v4/node_modules/
+
+# Angular
+dist/
+.angular/
+
+# Java / Spring
+target/
+*.class
+*.jar
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store 

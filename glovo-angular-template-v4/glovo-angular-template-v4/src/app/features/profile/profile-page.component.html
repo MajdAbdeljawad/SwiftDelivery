@@ -1,0 +1,26 @@
+<section class="profile-page container">
+  <div class="profile-layout">
+    <aside class="profile-side">
+      <div class="avatar">FT</div>
+      <h2>{{ profile.fullName }}</h2>
+      <p>{{ profile.email }}</p>
+      <div class="stats">
+        <div><strong>12</strong><span>Orders</span></div>
+        <div><strong>5</strong><span>Favorites</span></div>
+        <div><strong>3</strong><span>Addresses</span></div>
+      </div>
+    </aside>
+
+    <form class="profile-card" (ngSubmit)="save()">
+      <p class="eyebrow">Profile settings</p>
+      <h1>Edit profile</h1>
+      <div class="grid-two">
+        <label><span>Full name</span><input [(ngModel)]="profile.fullName" name="fullName" type="text" /></label>
+        <label><span>Phone</span><input [(ngModel)]="profile.phone" name="phone" type="text" /></label>
+      </div>
+      <label><span>Email</span><input [(ngModel)]="profile.email" name="email" type="email" /></label>
+      <label><span>Address</span><input [(ngModel)]="profile.address" name="address" type="text" /></label>
+      <button type="submit">Save changes</button>
+    </form>
+  </div>
+</section>

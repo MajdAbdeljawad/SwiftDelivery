@@ -1,0 +1,139 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Dashboard admin</h1>
+          <p>Vue globale des principales gestions de la plateforme.</p>
+        </div>
+        <div class="toolbar">
+          <button class="secondary-btn">Exporter rapport</button><button class="primary-btn">Nouvelle campagne</button>
+        </div>
+      </div>
+
+
+<div class="metrics">
+  <div class="metric-card" *ngFor="let item of kpis">
+    <h4>{{ item.label }}</h4>
+    <p>{{ item.value }}</p>
+    <span class="delta" [class.down]="item.trend === 'down'">{{ item.delta }}</span>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <article class="mini-stat" *ngFor="let stat of quickStats">
+    <p class="mini-label">{{ stat.label }}</p>
+    <p class="mini-value">{{ stat.value }}</p>
+    <p class="mini-note">{{ stat.note }}</p>
+  </article>
+</div>
+
+<div class="charts-grid">
+  <section class="chart-card">
+    <div class="chart-header">
+      <h4>Revenu sur 7 jours</h4>
+      <span class="chart-badge">+9.6%</span>
+    </div>
+    <svg viewBox="0 0 340 160" preserveAspectRatio="none" aria-label="Courbe de revenu">
+      <polyline class="chart-line revenue" [attr.points]="revenueCurve"></polyline>
+    </svg>
+    <div class="x-labels">
+      <span *ngFor="let day of weekDays">{{ day }}</span>
+    </div>
+  </section>
+
+  <section class="chart-card">
+    <div class="chart-header">
+      <h4>Commandes sur 7 jours</h4>
+      <span class="chart-badge">+6.1%</span>
+    </div>
+    <svg viewBox="0 0 340 160" preserveAspectRatio="none" aria-label="Courbe de commandes">
+      <polyline class="chart-line orders" [attr.points]="ordersCurve"></polyline>
+    </svg>
+    <div class="x-labels">
+      <span *ngFor="let day of weekDays">{{ day }}</span>
+    </div>
+  </section>
+
+  <section class="chart-card">
+    <div class="chart-header">
+      <h4>Livreurs actifs sur 7 jours</h4>
+      <span class="chart-badge">+4.3%</span>
+    </div>
+    <svg viewBox="0 0 340 160" preserveAspectRatio="none" aria-label="Courbe de livreurs actifs">
+      <polyline class="chart-line couriers" [attr.points]="deliveryCurve"></polyline>
+    </svg>
+    <div class="x-labels">
+      <span *ngFor="let day of weekDays">{{ day }}</span>
+    </div>
+  </section>
+</div>
+
+<div class="card-list" style="margin-bottom: 18px;">
+  <div class="info-card">
+    <h4>Modules disponibles</h4>
+    <p>Utilisateurs, restaurants, produits, commandes, paiements, livraisons et promotions.</p>
+  </div>
+  <div class="info-card">
+    <h4>Objectif du template</h4>
+    <p>Donner une base claire pour développer un back office complet type Glovo.</p>
+  </div>
+  <div class="info-card">
+    <h4>Actions rapides</h4>
+    <p>Ajouter un restaurant, valider un paiement, suivre une livraison ou lancer une promotion.</p>
+  </div>
+</div>
+
+<div class="grid-two">
+  <div class="panel">
+    <h4>Commandes récentes</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Commande</th>
+          <th>Client</th>
+          <th>Total</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of recentOrders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.customer }}</td>
+          <td>{{ order.total }}</td>
+          <td><span class="status">{{ order.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h4>Navigation admin</h4>
+    <p>Chaque page correspond à une gestion séparée pour que tu puisses brancher plus tard ton backend et tes APIs.</p>
+    <ul>
+      <li>Gestion des utilisateurs</li>
+      <li>Gestion des restaurants</li>
+      <li>Gestion des produits</li>
+      <li>Gestion des commandes</li>
+      <li>Gestion des paiements</li>
+      <li>Gestion des livraisons</li>
+      <li>Gestion des promotions & offres</li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>

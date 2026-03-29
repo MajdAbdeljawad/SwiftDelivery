@@ -1,0 +1,11 @@
+{
+  "name": "glovo-angular-template-workspace",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix ./glovo-angular-template-v4 run start",
+    "start:4201": "npm --prefix ./glovo-angular-template-v4 run start -- --port 4201",
+    "start:4300": "npm --prefix ./glovo-angular-template-v4 run start -- --port=4300",
+    "build": "npm --prefix ./glovo-angular-template-v4 run build",
+    "test": "npm --prefix ./glovo-angular-template-v4 run test"
+  }
+}

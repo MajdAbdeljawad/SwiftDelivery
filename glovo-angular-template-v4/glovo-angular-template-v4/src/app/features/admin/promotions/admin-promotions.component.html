@@ -1,0 +1,54 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des promotions & offres</h1>
+          <p>Création des coupons, offres restaurants et campagnes marketing.</p>
+        </div>
+        <div class="toolbar">
+          <select><option>Toutes les campagnes</option><option>Coupons</option><option>Happy hour</option></select><button class="primary-btn">Créer une offre</button>
+        </div>
+      </div>
+
+
+<div class="grid-two">
+  <div class="panel">
+    <h4>Campagnes actives</h4>
+    <table>
+      <thead>
+        <tr><th>Offre</th><th>Type</th><th>Réduction</th><th>Statut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>WELCOME20</td><td>Coupon</td><td>20%</td><td><span class="status">Active</span></td></tr>
+        <tr><td>FREEDEL</td><td>Livraison</td><td>0 TND</td><td><span class="status">Active</span></td></tr>
+        <tr><td>LUNCH15</td><td>Happy hour</td><td>15%</td><td><span class="status">Programmée</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <h4>Fonctionnalités à brancher</h4>
+    <ul>
+      <li>Code promo limité par utilisateur</li>
+      <li>Date début / date fin</li>
+      <li>Restriction par restaurant</li>
+      <li>Suivi du taux d’utilisation</li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>

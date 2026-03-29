@@ -1,0 +1,47 @@
+<header class="navbar" [class.admin-navbar]="isAdminRoute">
+  <div class="container navbar-content">
+    <a class="brand" [routerLink]="isAdminRoute ? '/admin' : '/'">
+      <span class="brand-mark">●</span>
+      <span>{{ isAdminRoute ? 'FoodExpress Admin' : 'FoodExpress' }}</span>
+    </a>
+
+    <nav class="links" *ngIf="!isAdminRoute">
+      <a routerLink="/">Home</a>
+      <a routerLink="/restaurants">Restaurants</a>
+      <a routerLink="/favorites">Favorites</a>
+      <a routerLink="/orders">Orders</a>
+      <a routerLink="/profile">Profile</a>
+      <a routerLink="/cart">Cart</a>
+    </nav>
+
+    <nav class="links admin-links" *ngIf="isAdminRoute">
+      <a
+        *ngFor="let link of adminLinks"
+        [routerLink]="link.path"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: link.exact }"
+      >
+        {{ link.label }}
+      </a>
+    </nav>
+
+    <div class="actions" *ngIf="!isAdminRoute">
+      <a class="text-link" routerLink="/checkout">Checkout</a>
+      <a class="signin-btn" routerLink="/restaurants">Explore</a>
+
+      <ng-container *ngIf="showUserIdentity; else guestActions">
+        <span class="user-pill">{{ displayName }}</span>
+        <button class="signout-btn" type="button" (click)="signOut()">Sign out</button>
+      </ng-container>
+
+      <ng-template #guestActions>
+        <a class="signin-btn" routerLink="/login">Sign In</a>
+      </ng-template>
+    </div>
+
+    <div class="actions admin-actions" *ngIf="isAdminRoute">
+      <a class="text-link" routerLink="/">Vue client</a>
+      <a class="signin-btn" routerLink="/admin/orders">Commandes live</a>
+    </div>
+  </div>
+</header>
