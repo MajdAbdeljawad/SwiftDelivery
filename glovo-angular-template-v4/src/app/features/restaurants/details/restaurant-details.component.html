@@ -1,0 +1,34 @@
+<section class="details-page container" *ngIf="restaurant">
+  <div class="hero-card">
+    <img [src]="restaurant.image" [alt]="restaurant.name" />
+    <div class="hero-content">
+      <p class="eyebrow">Restaurant details</p>
+      <h1>{{ restaurant.name }}</h1>
+      <p>{{ restaurant.description }}</p>
+      <div class="meta-row">
+        <span>⭐ {{ restaurant.rating }}</span>
+        <span>{{ restaurant.deliveryTime }}</span>
+        <span>{{ restaurant.deliveryFee }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Popular menu</h2>
+    <a routerLink="/cart">Go to cart</a>
+  </div>
+
+  <div class="menu-grid">
+    <article class="menu-card" *ngFor="let item of menu">
+      <img [src]="item.image" [alt]="item.name" />
+      <div class="menu-content">
+        <div class="menu-row">
+          <h3>{{ item.name }}</h3>
+          <strong>{{ item.price }} DT</strong>
+        </div>
+        <p>{{ item.description }}</p>
+        <button type="button" (click)="addToCart(item)">Add to cart</button>
+      </div>
+    </article>
+  </div>
+</section>
