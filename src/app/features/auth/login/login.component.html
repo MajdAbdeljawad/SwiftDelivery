@@ -1,0 +1,53 @@
+<section class="auth-page">
+  <div class="auth-card auth-copy">
+    <span class="badge">Customer space</span>
+    <h1>Welcome back</h1>
+    <p>
+      Sign in to order faster, track your deliveries, save addresses, and manage your favorite restaurants.
+    </p>
+
+    <div class="benefits">
+      <div class="benefit-item">
+        <strong>Fast checkout</strong>
+        <span>Saved addresses and one-click reorder.</span>
+      </div>
+      <div class="benefit-item">
+        <strong>Order tracking</strong>
+        <span>Follow your delivery status in real time.</span>
+      </div>
+      <div class="benefit-item">
+        <strong>Exclusive offers</strong>
+        <span>Discounts and promo codes for connected users.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-card auth-form-card">
+    <div class="auth-form-head">
+      <h2>Sign in</h2>
+      <p>Use this template for your Angular login page.</p>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="onSubmit()">
+      <label>
+        <span>Email address</span>
+        <input [(ngModel)]="form.email" name="email" type="email" placeholder="name@example.com" required />
+      </label>
+
+      <label>
+        <span>Password</span>
+        <input [(ngModel)]="form.password" name="password" type="password" placeholder="Enter your password" required />
+      </label>
+
+      <div class="form-row">
+        <label class="checkbox-row">
+          <input [(ngModel)]="form.rememberMe" name="rememberMe" type="checkbox" />
+          <span>Remember me</span>
+        </label>
+        <a routerLink="/register">Create account</a>
+      </div>
+
+      <button type="submit" class="primary-btn">Login</button>
+    </form>
+  </div>
+</section>

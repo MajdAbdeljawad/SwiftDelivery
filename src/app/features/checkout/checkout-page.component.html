@@ -1,0 +1,77 @@
+<section class="checkout-page container">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Checkout</p>
+      <h1>Complete your order</h1>
+    </div>
+  </div>
+
+  <form class="checkout-card" (ngSubmit)="submit()">
+    <div class="grid-two">
+      <label><span>Full name</span><input [(ngModel)]="form.fullName" name="fullName" type="text" required /></label>
+      <label><span>Phone</span><input [(ngModel)]="form.phone" name="phone" type="text" required /></label>
+    </div>
+    <label><span>Delivery address</span><input [(ngModel)]="form.address" name="address" type="text" required /></label>
+    <label><span>Order note</span><textarea [(ngModel)]="form.note" name="note" rows="4"></textarea></label>
+
+    <label><span>User</span>
+      <select [(ngModel)]="selectedUserId" name="selectedUserId" required>
+        <option [ngValue]="null">Select user</option>
+        <option *ngFor="let user of users" [ngValue]="user.id">{{ user.fullName }} (ID: {{ user.id }})</option>
+      </select>
+    </label>
+
+    <label><span>Payment method</span>
+      <select [(ngModel)]="form.payment" name="payment">
+        <option value="cash">Cash on delivery</option>
+        <option value="card">Credit card</option>
+        <option value="wallet">Wallet</option>
+      </select>
+    </label>
+
+    <div class="coupon-box">
+      <label><span>Coupon code</span>
+        <input
+          [(ngModel)]="couponCode"
+          name="couponCode"
+          type="text"
+          placeholder="Ex: WELCOME10"
+        />
+      </label>
+
+      <div class="coupon-actions">
+        <button type="button" class="secondary" (click)="applyCoupon()" [disabled]="isApplyingCoupon">
+          {{ isApplyingCoupon ? 'Applying...' : 'Apply coupon' }}
+        </button>
+        <button type="button" class="ghost" (click)="clearCoupon()" [disabled]="!appliedCoupon">Remove</button>
+      </div>
+
+      <div class="coupon-list" *ngIf="availableCoupons.length">
+        <span>Available:</span>
+        <button type="button" class="chip" *ngFor="let code of availableCoupons" (click)="useCoupon(code)">
+          {{ code }}
+        </button>
+      </div>
+
+      <p *ngIf="couponMessage" class="coupon-message">{{ couponMessage }}</p>
+    </div>
+
+    <div class="order-summary">
+      <div class="summary-row">
+        <span>Subtotal + delivery</span>
+        <strong>{{ baseTotal | number: '1.2-2' }} TND</strong>
+      </div>
+      <div class="summary-row" *ngIf="discountAmount > 0">
+        <span>Coupon discount</span>
+        <strong>-{{ discountAmount | number: '1.2-2' }} TND</strong>
+      </div>
+      <div class="summary-row total">
+        <span>Total to pay</span>
+        <strong>{{ finalTotal | number: '1.2-2' }} TND</strong>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="isSubmitting">{{ isSubmitting ? 'Saving...' : 'Place order' }}</button>
+    <p *ngIf="message">{{ message }}</p>
+  </form>
+</section>

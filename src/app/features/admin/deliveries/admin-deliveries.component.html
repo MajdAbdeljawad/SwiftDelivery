@@ -1,0 +1,45 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des livraisons</h1>
+          <p>Suivi des livreurs, tournées et délais de livraison.</p>
+        </div>
+        <div class="toolbar">
+          <input type="text" placeholder="Chercher un livreur"><button class="primary-btn">Affecter une livraison</button>
+        </div>
+      </div>
+
+
+<div class="metrics">
+  <div class="metric-card"><h4>Livreurs en ligne</h4><p>78</p></div>
+  <div class="metric-card"><h4>Livraisons en cours</h4><p>41</p></div>
+  <div class="metric-card"><h4>Délai moyen</h4><p>23 min</p></div>
+</div>
+<table>
+  <thead>
+    <tr><th>Livreur</th><th>Commande</th><th>Zone</th><th>Temps estimé</th><th>Statut</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Walid M.</td><td>#1003</td><td>Ariana</td><td>18 min</td><td><span class="status">En route</span></td></tr>
+    <tr><td>Sami K.</td><td>#1006</td><td>La Marsa</td><td>27 min</td><td><span class="status">Assignée</span></td></tr>
+    <tr><td>Oumaima B.</td><td>#1007</td><td>Sousse</td><td>12 min</td><td><span class="status">Livrée</span></td></tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</section>

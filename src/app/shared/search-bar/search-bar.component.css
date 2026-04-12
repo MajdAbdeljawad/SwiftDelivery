@@ -1,0 +1,26 @@
+.search-box {
+  display: flex;
+  background: white;
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: min(700px, 100%);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px 18px;
+  border-radius: 999px;
+}
+
+.search-box button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
