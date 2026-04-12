@@ -1,0 +1,38 @@
+:root {
+  --primary: #ffc244;
+  --accent: #00a082;
+  --bg: #fff8e8;
+  --text: #222222;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --border: #ececec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: #fafafa;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button, input {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}

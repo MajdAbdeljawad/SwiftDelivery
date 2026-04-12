@@ -1,0 +1,45 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des restaurants</h1>
+          <p>Suivi des restaurants partenaires, catégories et statuts.</p>
+        </div>
+        <div class="toolbar">
+          <select><option>Tous les statuts</option><option>Actif</option><option>En attente</option></select><button class="primary-btn">Ajouter restaurant</button>
+        </div>
+      </div>
+
+
+<div class="card-list" style="margin-bottom:18px;">
+  <div class="info-card"><h4>Restaurants actifs</h4><p>142 partenaires disponibles.</p></div>
+  <div class="info-card"><h4>Validation</h4><p>8 demandes d’onboarding en attente.</p></div>
+  <div class="info-card"><h4>Catégories</h4><p>Fast food, pizza, healthy, desserts, coffee.</p></div>
+</div>
+<table>
+  <thead>
+    <tr><th>Restaurant</th><th>Catégorie</th><th>Ville</th><th>Commission</th><th>Statut</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Pizza Time</td><td>Pizza</td><td>Tunis</td><td>15%</td><td><span class="status">Actif</span></td></tr>
+    <tr><td>Healthy Bowl</td><td>Healthy</td><td>Sfax</td><td>12%</td><td><span class="status">Actif</span></td></tr>
+    <tr><td>Sweet Corner</td><td>Desserts</td><td>Sousse</td><td>10%</td><td><span class="status">En attente</span></td></tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</section>

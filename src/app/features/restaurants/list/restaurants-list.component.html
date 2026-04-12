@@ -1,0 +1,42 @@
+<section class="page container">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Browse restaurants</p>
+      <h1>Discover restaurants near you</h1>
+    </div>
+    <a routerLink="/cart" class="primary-btn">Open cart</a>
+  </div>
+
+  <div class="filters">
+    <input [(ngModel)]="query" (ngModelChange)="applyFilters()" type="text" placeholder="Search a restaurant..." />
+
+    <div class="chips">
+      <button
+        *ngFor="let category of categories"
+        type="button"
+        [class.active]="selectedCategory === category"
+        (click)="selectedCategory = category; applyFilters()">
+        {{ category }}
+      </button>
+    </div>
+  </div>
+
+  <div class="restaurant-grid">
+    <article class="card" *ngFor="let restaurant of filteredRestaurants">
+      <img [src]="restaurant.image" [alt]="restaurant.name" />
+      <div class="content">
+        <div class="row">
+          <h3>{{ restaurant.name }}</h3>
+          <span>⭐ {{ restaurant.rating }}</span>
+        </div>
+        <p class="category">{{ restaurant.category }}</p>
+        <p class="description">{{ restaurant.description }}</p>
+        <div class="row meta">
+          <span>{{ restaurant.deliveryTime }}</span>
+          <span>{{ restaurant.deliveryFee }}</span>
+        </div>
+        <a [routerLink]="['/restaurants', restaurant.id]" class="secondary-btn">View details</a>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,118 +1,96 @@
-🍽️ FOOD-ORDERING SYSTEM - Plateforme de Gestion
-Description du Projet 🗒️
+# FOOD-ORDERING SYSTEM - Plateforme de Gestion
 
-FOOD-ORDERING SYSTEM est une application distribuée basée sur une architecture microservices, développée avec Spring Boot et Symfony, visant à simplifier la gestion d’un système complet de restauration (utilisateurs, restaurants, commandes, paiements, promotions).
+Description du projet
 
-Contexte : ✨
+FOOD-ORDERING SYSTEM est une application distribuee basee sur une architecture microservices, developpee avec Spring Boot et Symfony, visant a simplifier la gestion d'un systeme complet de restauration (utilisateurs, restaurants, commandes, paiements, promotions).
 
-Avec l’évolution des systèmes distribués, les architectures monolithiques deviennent difficiles à maintenir et à scaler.
-Ce projet a été conçu pour répondre à ces problématiques en adoptant une architecture microservices permettant :
+## Contexte
 
-une meilleure scalabilité 📈
-une maintenance simplifiée 🔧
-une répartition claire des responsabilités 🧩
+Avec l'evolution des systemes distribues, les architectures monolithiques deviennent difficiles a maintenir et a faire evoluer.
+Ce projet adopte une architecture microservices permettant:
 
-La plateforme permet de gérer efficacement l’ensemble du cycle d’un service de restauration, depuis l’inscription des utilisateurs jusqu’au paiement et aux promotions.
+- une meilleure scalabilite
+- une maintenance simplifiee
+- une repartition claire des responsabilites
 
-Fonctionnalités principales :
-🔐 Gestion des utilisateurs
-Authentification sécurisée via Keycloak
-Gestion des rôles (admin / client)
-CRUD utilisateurs
-🍽️ Gestion des restaurants
-CRUD restaurants
-Consultation des menus
-Recherche et filtrage
-📦 Gestion des produits
-CRUD produits
-Association avec restaurants
-Gestion des catégories
-🛒 Gestion des commandes
-Création et suivi des commandes
-Statuts (en attente, validée, livrée)
-Historique des commandes
-💳 Gestion des paiements
-Traitement des paiements
-Suivi des transactions
-Sécurisation des opérations
-🎁 Gestion des promotions & offres
-CRUD promotions
-Gestion des réductions
-Application automatique sur commandes
-🏗️ Architecture du Projet
+La plateforme couvre l'ensemble du cycle d'un service de restauration, de l'inscription des utilisateurs jusqu'au paiement et aux promotions.
 
-Le système est composé de plusieurs services indépendants :
+## Fonctionnalites principales
 
-🔹 Backend
-API Gateway : point d’entrée unique pour toutes les requêtes
-Server Config : centralisation des configurations
-Eureka Service : découverte des microservices
-Keycloak : authentification et gestion des accès
-🔹 Microservices
-Service Utilisateurs → Spring Boot + MySQL
-Service Restaurants → Spring Boot + MySQL
-Service Produits → Spring Boot + MySQL
-Service Commandes → Spring Boot + H2
-Service Paiements → Spring Boot + MySQL
-Service Promotions → Symfony + MySql
-🔹 Frontend
-Interface utilisateur connectée via API Gateway
-🐳 Dockerisation
+- Gestion des utilisateurs: authentification securisee via Keycloak, gestion des roles, CRUD utilisateurs
+- Gestion des restaurants: CRUD restaurants, consultation des menus, recherche et filtrage
+- Gestion des produits: CRUD produits, association avec restaurants, gestion des categories
+- Gestion des commandes: creation et suivi, statuts, historique
+- Gestion des paiements: traitement, suivi des transactions, securisation des operations
+- Gestion des promotions et offres: CRUD promotions, gestion des reductions, application automatique
 
-Le projet a été entièrement conteneurisé avec Docker afin de faciliter :
+## Architecture du projet
 
-le déploiement 🚀
-la portabilité 📦
-l’isolation des services 🔒
-📁 Contenu Docker
-Un Dockerfile pour chaque microservice
-Un fichier docker-compose.yml pour orchestrer tous les services
-Installation
-Prérequis 📦
-Docker
-Docker Compose
-Git
+Le systeme est compose de plusieurs services independants.
 
-Fonctionnalités clés
-🔐 Authentification
+- Backend: API Gateway, Server Config, Eureka Service, Keycloak
+- Microservices:
+	- Service Utilisateurs (Spring Boot + MySQL)
+	- Service Restaurants (Spring Boot + MySQL)
+	- Service Produits (Spring Boot + MySQL)
+	- Service Commandes (Spring Boot + H2)
+	- Service Paiements (Spring Boot + MySQL)
+	- Service Promotions (Symfony + MySQL)
+- Frontend: interface utilisateur connectee via API Gateway
 
-Authentification centralisée avec Keycloak utilisant des tokens JWT pour sécuriser les communications entre services.
+## Frontend Angular (order-microservice)
 
-🔄 Communication inter-services
-Communication REST entre microservices
-Découverte dynamique via Eureka
-Routage via API Gateway
-🛒 Processus de commande
-L’utilisateur passe une commande
-Le service commande traite la demande
-Le service paiement valide la transaction
-Les promotions sont appliquées automatiquement
+Template Angular inspire d'une plateforme de livraison type Glovo.
 
-Technologies
-Backend
-Spring Boot
-Symfony
-Spring Cloud (Eureka, Gateway, Config)
-Sécurité
-Keycloak
-JWT
-Base de données
-MySQL
-MongoDB
-H2
-DevOps
-Docker
-Docker Compose
-Contributeurs 👥
-Mohamed Benalija — Gestion des utilisateurs
-Yasmine El Amri — Gestion des restaurants
-Amal Trad — Gestion des produits
-Majd Abdeljaoued — Gestion des commandes
-Baya Khouini — Gestion des paiements
-Ashkinez Jamaleddin — Gestion deslivraison
-groupe: — Gestion ddes offres
-🚀 Améliorations futures
-CI/CD (GitHub Actions)
-Monitoring (Prometheus / Grafana)
-Logging centralisé (ELK)
-Déploiement Kubernetes
+Pages admin ajoutees:
+- Gestion des utilisateurs
+- Gestion des restaurants
+- Gestion des produits
+- Gestion des commandes
+- Gestion des paiements
+- Gestion des livraisons
+- Gestion des promotions et offres
+
+### Lancer le frontend
+
+```bash
+npm install
+npm start
+```
+
+## Dockerisation
+
+Le projet est conteneurise avec Docker pour faciliter le deploiement, la portabilite et l'isolation des services.
+
+- Un Dockerfile pour chaque microservice
+- Un fichier docker-compose.yml pour orchestrer tous les services
+
+## Prerequis
+
+- Docker
+- Docker Compose
+- Git
+
+## Technologies
+
+- Backend: Spring Boot, Symfony, Spring Cloud (Eureka, Gateway, Config)
+- Securite: Keycloak, JWT
+- Bases de donnees: MySQL, MongoDB, H2
+- DevOps: Docker, Docker Compose
+
+## Contributeurs
+
+- Mohamed Benalija - Gestion des utilisateurs
+- Yasmine El Amri - Gestion des restaurants
+- Amal Trad - Gestion des produits
+- Majd Abdeljaoued - Gestion des commandes
+- Baya Khouini - Gestion des paiements
+- Ashkinez Jamaleddin - Gestion des livraisons
+- Groupe - Gestion des offres
+
+## Ameliorations futures
+
+- CI/CD (GitHub Actions)
+- Monitoring (Prometheus / Grafana)
+- Logging centralise (ELK)
+- Deploiement Kubernetes

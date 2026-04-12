@@ -1,0 +1,82 @@
+<section class="admin-page">
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <h3>Admin panel</h3>
+      <a routerLink="/admin">Dashboard</a>
+      <a routerLink="/admin/users">Gestion des utilisateurs</a>
+      <a routerLink="/admin/restaurants">Gestion des restaurants</a>
+      <a routerLink="/admin/products">Gestion des produits</a>
+      <a routerLink="/admin/orders">Gestion des commandes</a>
+      <a routerLink="/admin/payments">Gestion des paiements</a>
+      <a routerLink="/admin/deliveries">Gestion des livraisons</a>
+      <a routerLink="/admin/promotions">Gestion des promotions & offres</a>
+    </aside>
+
+    <div class="content-panel">
+      <div class="page-header">
+        <div>
+          <h1>Gestion des commandes</h1>
+          <p>CRUD commandes via order-service.</p>
+        </div>
+        <div class="toolbar">
+          <button class="secondary-btn" (click)="loadOrders()">Rafraichir</button>
+        </div>
+      </div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h4>{{ editId ? 'Modifier commande' : 'Ajouter commande' }}</h4>
+          <div class="form-grid">
+            <input type="number" min="1" placeholder="User ID" [(ngModel)]="formOrder.userId">
+            <input type="text" placeholder="Restaurant" [(ngModel)]="formOrder.restaurantName">
+            <input type="text" placeholder="Status" [(ngModel)]="formOrder.status">
+            <input type="number" min="0" step="0.01" placeholder="Total" [(ngModel)]="formOrder.totalPrice">
+          </div>
+          <div class="actions-row">
+            <button class="primary-btn" (click)="save()">{{ editId ? 'Mettre a jour' : 'Creer' }}</button>
+            <button class="secondary-btn" (click)="resetForm()">Vider</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>Statistiques</h4>
+          <div class="stats-line"><strong>Total:</strong> {{ orders.length }}</div>
+          <div class="stats-line"><strong>Chargement:</strong> {{ isLoading ? 'Oui' : 'Non' }}</div>
+          <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Restaurant</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>{{ order.userId }}</td>
+            <td>{{ order.restaurantName }}</td>
+            <td><span class="status">{{ order.status }}</span></td>
+            <td>{{ order.totalPrice }}</td>
+            <td>{{ order.createdAt || '-' }}</td>
+            <td class="actions-cell">
+              <button class="secondary-btn" (click)="edit(order)">Edit</button>
+              <button class="danger-btn" (click)="remove(order.id)">Delete</button>
+            </td>
+          </tr>
+          <tr *ngIf="!isLoading && orders.length === 0">
+            <td colspan="7">Aucune commande trouvee.</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>

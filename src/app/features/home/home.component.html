@@ -1,0 +1,65 @@
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Multi-page delivery app template</span>
+      <h1>Your favorite food, delivered quickly.</h1>
+      <p>
+        Angular starter inspired by delivery platforms with restaurants, details page, cart, checkout, orders, profile, favorites, and admin back office.
+      </p>
+      <app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+      <div class="hero-actions">
+        <a routerLink="/restaurants" class="primary-link">Browse restaurants</a>
+        <a routerLink="/orders" class="secondary-link">Track orders</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Today’s best offers</h3>
+      <ul>
+        <li>🍕 20% off pizza orders</li>
+        <li>🍔 Free delivery on burgers</li>
+        <li>🍰 Dessert combo deals</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="section container">
+  <div class="section-head">
+    <h2>Popular categories</h2>
+    <p>Quick shortcuts for users.</p>
+  </div>
+
+  <div class="categories">
+    <div class="category-chip" *ngFor="let category of categories">{{ category }}</div>
+  </div>
+</section>
+
+<section class="section container feature-strip">
+  <article class="feature-card" *ngFor="let item of highlights">
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.text }}</p>
+  </article>
+</section>
+
+<section class="section container">
+  <div id="restaurants" class="section-head">
+    <h2>Top restaurants</h2>
+    <a routerLink="/restaurants">See all</a>
+  </div>
+
+  <div class="restaurant-grid">
+    <article class="preview-card" *ngFor="let restaurant of filteredRestaurants">
+      <img [src]="restaurant.image" [alt]="restaurant.name" />
+      <div class="preview-content">
+        <div class="preview-row">
+          <h3>{{ restaurant.name }}</h3>
+          <span>⭐ {{ restaurant.rating }}</span>
+        </div>
+        <p>{{ restaurant.description }}</p>
+        <a [routerLink]="['/restaurants', restaurant.id]">Open menu</a>
+      </div>
+    </article>
+  </div>
+</section>

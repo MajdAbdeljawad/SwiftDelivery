@@ -1,0 +1,53 @@
+<section class="register-page">
+  <div class="register-wrap">
+    <div class="intro-panel">
+      <span class="badge">New users</span>
+      <h1>Create your account</h1>
+      <p>Use this signup template for a delivery app, marketplace, or food ordering project.</p>
+      <ul>
+        <li>Save favorite restaurants</li>
+        <li>Track current and past orders</li>
+        <li>Manage profile, address, and payment details</li>
+      </ul>
+    </div>
+
+    <div class="form-panel">
+      <div class="panel-head">
+        <h2>Sign up</h2>
+        <p>Ready-to-use Angular registration UI.</p>
+      </div>
+
+      <form class="register-form" (ngSubmit)="onSubmit()">
+        <div class="grid-two">
+          <label>
+            <span>Full name</span>
+            <input [(ngModel)]="form.fullName" name="fullName" type="text" placeholder="Firas Toukabri" required />
+          </label>
+          <label>
+            <span>Phone number</span>
+            <input [(ngModel)]="form.phone" name="phone" type="text" placeholder="+216 xx xxx xxx" />
+          </label>
+        </div>
+
+        <label>
+          <span>Email address</span>
+          <input [(ngModel)]="form.email" name="email" type="email" placeholder="name@example.com" required />
+        </label>
+
+        <div class="grid-two">
+          <label>
+            <span>Password</span>
+            <input [(ngModel)]="form.password" name="password" type="password" placeholder="Create password" required />
+          </label>
+          <label>
+            <span>Confirm password</span>
+            <input [(ngModel)]="form.confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password" required />
+          </label>
+        </div>
+
+        <button type="submit" class="primary-btn">Create account</button>
+        <p class="switch-link">Already have an account? <a routerLink="/login">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+</section>

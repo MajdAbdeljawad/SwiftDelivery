@@ -1,0 +1,24 @@
+<section class="orders-page container">
+  <p class="eyebrow">Orders</p>
+  <h1>Track your orders</h1>
+
+  <p *ngIf="isLoading">Loading orders...</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="orders-grid" *ngIf="!isLoading && !errorMessage">
+    <article class="order-card" *ngFor="let order of orders">
+      <div class="row">
+        <h3>#{{ order.id }}</h3>
+        <span class="status">{{ order.status }}</span>
+      </div>
+      <p>{{ order.restaurantName }}</p>
+      <div class="meta"><span>{{ order.createdAt || 'N/A' }}</span><strong>{{ order.totalPrice }} DT</strong></div>
+      <div class="timeline">
+        <span class="done">Order confirmed</span>
+        <span [class.done]="order.status !== 'NEW'">Preparing</span>
+        <span [class.done]="order.status === 'ON_THE_WAY' || order.status === 'DELIVERED'">On the way</span>
+        <span [class.done]="order.status === 'DELIVERED'">Delivered</span>
+      </div>
+    </article>
+  </div>
+</section>
