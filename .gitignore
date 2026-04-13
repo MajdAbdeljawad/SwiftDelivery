@@ -1,0 +1,21 @@
+# Build outputs
+target/
+**/target/
+dist/
+build/
+
+# Node.js
+node_modules/
+**/node_modules/
+.angular/
+**/.angular/
+
+# IDE and OS files
+.idea/
+**/.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
