@@ -21,8 +21,8 @@ La plateforme couvre l'ensemble du cycle d'un service de restauration, de l'insc
 - Gestion des restaurants: CRUD restaurants, consultation des menus, recherche et filtrage
 - Gestion des produits: CRUD produits, association avec restaurants, gestion des categories
 - Gestion des commandes: creation et suivi, statuts, historique
-- Gestion des paiements: traitement, suivi des transactions, securisation des operations
-- Gestion des promotions et offres: CRUD promotions, gestion des reductions, application automatique
+-Service Marchandise :crud , rechrche ,tri ,
+- Gestion des offres: CRUD promotions, gestion des reductions, application automatique
 
 ## Architecture du projet
 
@@ -34,8 +34,8 @@ Le systeme est compose de plusieurs services independants.
 	- Service Restaurants (Spring Boot + MySQL)
 	- Service Produits (Spring Boot + MySQL)
 	- Service Commandes (Spring Boot + H2)
-	- Service Paiements (Spring Boot + MySQL)
-	- Service Promotions (Symfony + MySQL)
+	-Service Marchandise (spring boot+ mySQL)
+	- Service Promotions (Symfony + H2)
 - Frontend: interface utilisateur connectee via API Gateway
 
 ## Frontend Angular (order-microservice)
@@ -47,9 +47,9 @@ Pages admin ajoutees:
 - Gestion des restaurants
 - Gestion des produits
 - Gestion des commandes
-- Gestion des paiements
+	-Service Marchandise (spring boot+ mySQL)
 - Gestion des livraisons
-- Gestion des promotions et offres
+- Gestion des  offres
 
 ### Lancer le frontend
 
@@ -84,7 +84,8 @@ Le projet est conteneurise avec Docker pour faciliter le deploiement, la portabi
 - Yasmine El Amri - Gestion des restaurants
 - Amal Trad - Gestion des produits
 - Majd Abdeljaoued - Gestion des commandes
-- Baya Khouini - Gestion des paiements
+- Baya Khouini - Service Marchandise 
+
 - Ashkinez Jamaleddin - Gestion des livraisons
 - Groupe - Gestion des offres
 
